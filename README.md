@@ -4,9 +4,9 @@ Una aplicación de E-commerce para empresas y sectores varios.
 
 ## Autores
 
-- [@raullencinas-frm-utn](https://github.com/raullencinas-frm-utn)
-- [@santillielias](https://github.com/santillielias)
-- [@LeandroValdearenas](https://github.com/LeandroValdearenas)
+- Alejandro Lencinas [@raullencinas-frm-utn](https://github.com/raullencinas-frm-utn)
+- Elias Santilli [@santillielias](https://github.com/santillielias)
+- Leandro Valdearenas [@LeandroValdearenas](https://github.com/LeandroValdearenas)
 
 ## Variables de Entorno
 
