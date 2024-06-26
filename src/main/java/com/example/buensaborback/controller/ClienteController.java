@@ -28,7 +28,7 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
         super(service);
     }
 
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("buscar")
     public ResponseEntity<?> buscarXNombreYEliminado(@RequestParam(required = false) String busqueda, @RequestParam(required = false) boolean mostrarEliminados) {
         try {
@@ -69,7 +69,7 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
 
             if (clienteExistente == null) {
                 cliente.getUsuario().setCliente(cliente);
-                auth0Service.assignRoles("auth0|" + cliente.getUsuario().getAuth0Id(), Rol.Cliente);
+                auth0Service.assignRoles(cliente.getUsuario().getAuth0Id(), Rol.Cliente);
                 return ResponseEntity.status(HttpStatus.OK).body(service.save(cliente));
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Ya existe el usuario en la BD: " + "\"}");

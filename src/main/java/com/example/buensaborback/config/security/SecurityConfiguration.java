@@ -50,58 +50,58 @@ public class SecurityConfiguration {
                                 .requestMatchers("/wss/**").permitAll()
                                 // INSUMOS
                                 .requestMatchers(HttpMethod.GET, "/api/insumos/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/insumos/**").hasAnyAuthority("administrador", "cocinero")
-                                .requestMatchers(HttpMethod.PUT, "/api/insumos/**").hasAnyAuthority("administrador", "cocinero")
+                                .requestMatchers(HttpMethod.POST, "/api/insumos/**").hasAnyAuthority("superadmin","administrador", "cocinero")
+                                .requestMatchers(HttpMethod.PUT, "/api/insumos/**").hasAnyAuthority("superadmin","administrador", "cocinero")
                                 // MANUFACTURADOS
                                 .requestMatchers(HttpMethod.GET, "/api/manufacturados/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/manufacturados/**").hasAnyAuthority("administrador", "cocinero")
-                                .requestMatchers(HttpMethod.PUT, "/api/manufacturados/**").hasAnyAuthority("administrador", "cocinero")
+                                .requestMatchers(HttpMethod.POST, "/api/manufacturados/**").hasAnyAuthority("superadmin","administrador", "cocinero")
+                                .requestMatchers(HttpMethod.PUT, "/api/manufacturados/**").hasAnyAuthority("superadmin","administrador", "cocinero")
                                 // CATEGORÍAS
                                 .requestMatchers(HttpMethod.GET, "/api/categorias/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/categorias/**").hasAnyAuthority("administrador")
-                                .requestMatchers(HttpMethod.PUT, "/api/categorias/**").hasAnyAuthority("administrador")
+                                .requestMatchers(HttpMethod.POST, "/api/categorias/**").hasAnyAuthority("superadmin","administrador")
+                                .requestMatchers(HttpMethod.PUT, "/api/categorias/**").hasAnyAuthority("superadmin","administrador")
                                 // CLIENTES
-                                .requestMatchers(HttpMethod.GET, "/api/clientes/**").hasAnyAuthority("administrador", "cliente")
+                                .requestMatchers(HttpMethod.GET, "/api/clientes/**").hasAnyAuthority("superadmin","administrador", "cliente")
                                 .requestMatchers(HttpMethod.POST, "/api/clientes/**").authenticated()
-                                .requestMatchers(HttpMethod.PUT, "/api/clientes/**").hasAnyAuthority("administrador", "cliente")
+                                .requestMatchers(HttpMethod.PUT, "/api/clientes/**").hasAnyAuthority("superadmin","administrador", "cliente")
                                 // EMPLEADOS
                                 .requestMatchers(HttpMethod.GET, "/api/empleados/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/empleados/**").hasAnyAuthority("administrador")
-                                .requestMatchers(HttpMethod.PUT, "/api/empleados/**").hasAnyAuthority("administrador", "cajero", "cocinero", "delivery")
+                                .requestMatchers(HttpMethod.POST, "/api/empleados/**").hasAnyAuthority("superadmin","administrador")
+                                .requestMatchers(HttpMethod.PUT, "/api/empleados/**").hasAnyAuthority("superadmin","administrador", "cajero", "cocinero", "delivery")
                                 // EMPRESAS
                                 .requestMatchers(HttpMethod.GET, "/api/empresas/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/empresas/**").hasAnyAuthority("administrador") // superadmin?
-                                .requestMatchers(HttpMethod.PUT, "/api/empresas/**").hasAnyAuthority("administrador") // superadmin?
+                                .requestMatchers(HttpMethod.POST, "/api/empresas/**").hasAnyAuthority("superadmin")
+                                .requestMatchers(HttpMethod.PUT, "/api/empresas/**").hasAnyAuthority("superadmin")
                                 // LOCALIDADES
                                 .requestMatchers(HttpMethod.GET, "/api/localidades/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/localidades/**").hasAnyAuthority("administrador") // superadmin?
-                                .requestMatchers(HttpMethod.PUT, "/api/localidades/**").hasAnyAuthority("administrador") // superadmin?
+                                .requestMatchers(HttpMethod.POST, "/api/localidades/**").hasAnyAuthority("superadmin")
+                                .requestMatchers(HttpMethod.PUT, "/api/localidades/**").hasAnyAuthority("superadmin")
                                 // MERCADOPAGO
                                 .requestMatchers(HttpMethod.POST, "/api/mp/create_preference_mp").hasAnyAuthority("cliente")
                                 // PAISES
                                 .requestMatchers(HttpMethod.GET, "/api/pais/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/pais/**").hasAnyAuthority("administrador") // superadmin?
-                                .requestMatchers(HttpMethod.PUT, "/api/pais/**").hasAnyAuthority("administrador") // superadmin?
+                                .requestMatchers(HttpMethod.POST, "/api/pais/**").hasAnyAuthority("superadmin")
+                                .requestMatchers(HttpMethod.PUT, "/api/pais/**").hasAnyAuthority("superadmin")
                                 // PEDIDOS
-                                .requestMatchers(HttpMethod.GET, "/api/pedidos/**").hasAnyAuthority("administrador", "cajero", "cliente", "cocinero", "delivery")
+                                .requestMatchers(HttpMethod.GET, "/api/pedidos/**").hasAnyAuthority("superadmin","administrador", "cajero", "cliente", "cocinero", "delivery")
                                 .requestMatchers(HttpMethod.POST, "/api/pedidos/**").hasAnyAuthority("cliente")
-                                .requestMatchers(HttpMethod.PUT, "/api/pedidos/**").hasAnyAuthority("administrador", "cajero", "cliente", "cocinero", "delivery")
+                                .requestMatchers(HttpMethod.PUT, "/api/pedidos/**").hasAnyAuthority("superadmin","administrador", "cajero", "cliente", "cocinero", "delivery")
                                 // PROMOCIONES
                                 .requestMatchers(HttpMethod.GET, "/api/promociones/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/promociones/**").hasAnyAuthority("administrador")
-                                .requestMatchers(HttpMethod.PUT, "/api/promociones/**").hasAnyAuthority("administrador")
+                                .requestMatchers(HttpMethod.POST, "/api/promociones/**").hasAnyAuthority("superadmin","administrador")
+                                .requestMatchers(HttpMethod.PUT, "/api/promociones/**").hasAnyAuthority("superadmin","administrador")
                                 // PROVINCIAS
                                 .requestMatchers(HttpMethod.GET, "/api/provincias/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/provincias/**").hasAnyAuthority("administrador") // superadmin?
-                                .requestMatchers(HttpMethod.PUT, "/api/provincias/**").hasAnyAuthority("administrador") // superadmin?
+                                .requestMatchers(HttpMethod.POST, "/api/provincias/**").hasAnyAuthority("superadmin")
+                                .requestMatchers(HttpMethod.PUT, "/api/provincias/**").hasAnyAuthority("superadmin")
                                 // SUCURSALES
                                 .requestMatchers(HttpMethod.GET, "/api/sucursales/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/sucursales/**").hasAnyAuthority("administrador") // superadmin?
-                                .requestMatchers(HttpMethod.PUT, "/api/sucursales/**").hasAnyAuthority("administrador") // superadmin?
+                                .requestMatchers(HttpMethod.POST, "/api/sucursales/**").hasAnyAuthority("superadmin")
+                                .requestMatchers(HttpMethod.PUT, "/api/sucursales/**").hasAnyAuthority("superadmin")
                                 // UNIDADES DE MEDIDA
-                                .requestMatchers(HttpMethod.GET, "/api/unidadesmedida/**").hasAnyAuthority("administrador", "cocinero")
-                                .requestMatchers(HttpMethod.POST, "/api/sucursales/**").hasAnyAuthority("administrador")
-                                .requestMatchers(HttpMethod.PUT, "/api/sucursales/**").hasAnyAuthority("administrador")
+                                .requestMatchers(HttpMethod.GET, "/api/unidadesmedida/**").hasAnyAuthority("superadmin","administrador", "cocinero")
+                                .requestMatchers(HttpMethod.POST, "/api/sucursales/**").hasAnyAuthority("superadmin","administrador")
+                                .requestMatchers(HttpMethod.PUT, "/api/sucursales/**").hasAnyAuthority("superadmin","administrador")
                                 .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(oauth2ResourceServer ->

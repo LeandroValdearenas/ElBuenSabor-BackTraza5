@@ -26,7 +26,7 @@ public class EmpleadoServiceImpl extends BaseServiceImpl<Empleado, Long> impleme
     public List<Empleado> buscarXSucursalYNombre(Long sucursalId, String busqueda) throws Exception {
         try {
             if (sucursalId == 0L) {
-                return empleadoRepository.buscarXNombre(busqueda);
+                return empleadoRepository.buscarXNombreEliminados(busqueda);
             } else {
                 return empleadoRepository.buscarXSucursalYNombre(sucursalId, busqueda);
             }

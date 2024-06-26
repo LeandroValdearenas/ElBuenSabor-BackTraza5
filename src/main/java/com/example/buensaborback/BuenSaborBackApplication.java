@@ -1001,94 +1001,100 @@ public class BuenSaborBackApplication {
             sucursalRepository.saveAll(Set.of(sucursalChacras, sucursalGodoyCruz));
 
             // AGREGAR CLIENTE
-            UsuarioCliente usuario1 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("6656512773ce20dd72a2f698").build();
+            UsuarioCliente usuario1 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("auth0|6656512773ce20dd72a2f698").build();
             ImagenCliente imagenCliente = ImagenCliente.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio domicilioCliente1 = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
             Domicilio domicilioCliente2 = Domicilio.builder().calle("San martin").numero(412).cp(5501).localidad(localidad2).build();
-            Cliente cliente1 = Cliente.builder().nombre("Alejandro").eliminado(false).email("alex@gmail.com").apellido("Lencinas").dni("35515440").cuil("20355154409").imagen(imagenCliente).telefono("2634666666").rol(Rol.Cliente).usuario(usuario1).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
+            Cliente cliente1 = Cliente.builder().nombre("Alejandro").eliminado(false).email("alex@elbuensabor.com").apellido("Lencinas").dni("35515440").cuil("20355154409").imagen(imagenCliente).telefono("2634666666").rol(Rol.Cliente).usuario(usuario1).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
             cliente1.getDomicilios().add(domicilioCliente1);
             cliente1.getDomicilios().add(domicilioCliente2);
             clienteRepository.save(cliente1);
             logger.info("Cliente {}", cliente1);
 
             // AGREGAR CLIENTE
-            UsuarioCliente usuarioCliente2 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
+            UsuarioCliente usuarioCliente2 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("auth0|iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
 
             ImagenCliente imagenCliente2 = ImagenCliente.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio cliente2domicilio1 = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
             Domicilio cliente2domicilio2 = Domicilio.builder().calle("San martin").numero(412).cp(5501).localidad(localidad2).build();
-            Cliente cliente2 = Cliente.builder().nombre("Pepito").eliminado(false).email("pepitocomilon@gmail.com").apellido("Comilon").dni("35515000").cuil("20355150009").imagen(imagenCliente2).telefono("2634666123").rol(Rol.Cliente).usuario(usuarioCliente2).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
+            Cliente cliente2 = Cliente.builder().nombre("Pepito").eliminado(false).email("pepitocomilon@elbuensabor.com").apellido("Comilon").dni("35515000").cuil("20355150009").imagen(imagenCliente2).telefono("2634666123").rol(Rol.Cliente).usuario(usuarioCliente2).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
             cliente2.getDomicilios().add(cliente2domicilio1);
             cliente2.getDomicilios().add(cliente2domicilio2);
             clienteRepository.save(cliente2);
             logger.info("Cliente {}", cliente2);
 
-            UsuarioCliente usuarioCliente3 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
+            UsuarioCliente usuarioCliente3 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("auth0|iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
             ImagenCliente imagenCliente3 = ImagenCliente.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio cliente3domicilio1 = Domicilio.builder().calle("Belgrano").numero(223).cp(5507).localidad(localidad1).build();
             Domicilio cliente3domicilio2 = Domicilio.builder().calle("San Juan").numero(612).cp(5501).localidad(localidad2).build();
-            Cliente cliente3 = Cliente.builder().nombre("Jorgito").eliminado(false).email("pepitocomilon@gmail.com").apellido("Comilon").dni("35515111").cuil("20355151119").imagen(imagenCliente3).telefono("2634645123").rol(Rol.Cliente).usuario(usuarioCliente3).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
+            Cliente cliente3 = Cliente.builder().nombre("Jorgito").eliminado(false).email("jorgitocomilon@elbuensabor.com").apellido("Comilon").dni("35515111").cuil("20355151119").imagen(imagenCliente3).telefono("2634645123").rol(Rol.Cliente).usuario(usuarioCliente3).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
             cliente3.getDomicilios().add(cliente3domicilio1);
             cliente3.getDomicilios().add(cliente3domicilio2);
             clienteRepository.save(cliente3);
             logger.info("Cliente {}", cliente3);
 
-            UsuarioCliente usuarioCliente4 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
+            UsuarioCliente usuarioCliente4 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("auth0|iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
 
             ImagenCliente imagenCliente4 = ImagenCliente.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio cliente4domicilio1 = Domicilio.builder().calle("Rioja").numero(56).cp(5507).localidad(localidad1).build();
             Domicilio cliente4domicilio2 = Domicilio.builder().calle("San Juan").numero(625).cp(5501).localidad(localidad2).build();
-            Cliente cliente4 = Cliente.builder().nombre("Bernardito").eliminado(false).email("pepitocomilon@gmail.com").apellido("Comilon").dni("35515222").cuil("20355152229").imagen(imagenCliente4).telefono("2634545123").rol(Rol.Cliente).usuario(usuarioCliente4).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
+            Cliente cliente4 = Cliente.builder().nombre("Bernardito").eliminado(false).email("bernarditocomilon@elbuensabor.com").apellido("Comilon").dni("35515222").cuil("20355152229").imagen(imagenCliente4).telefono("2634545123").rol(Rol.Cliente).usuario(usuarioCliente4).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
             cliente4.getDomicilios().add(cliente4domicilio1);
             cliente4.getDomicilios().add(cliente4domicilio2);
             clienteRepository.save(cliente4);
             logger.info("Cliente {}", cliente4);
 
-            UsuarioCliente usuarioCliente5 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
+            UsuarioCliente usuarioCliente5 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("auth0|iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
 
             ImagenCliente imagenCliente5 = ImagenCliente.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio cliente5domicilio1 = Domicilio.builder().calle("Corrientes").numero(223).cp(5507).localidad(localidad1).build();
             Domicilio cliente5domicilio2 = Domicilio.builder().calle("San Martin").numero(612).cp(5501).localidad(localidad2).build();
-            Cliente cliente5 = Cliente.builder().nombre("Samuelito").eliminado(false).email("pepitocomilon@gmail.com").apellido("Comilon").dni("35515333").cuil("20355153339").imagen(imagenCliente5).telefono("2634691123").rol(Rol.Cliente).usuario(usuarioCliente5).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
+            Cliente cliente5 = Cliente.builder().nombre("Samuelito").eliminado(false).email("samuelitocomilon@elbuensabor.com").apellido("Comilon").dni("35515333").cuil("20355153339").imagen(imagenCliente5).telefono("2634691123").rol(Rol.Cliente).usuario(usuarioCliente5).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
             cliente5.getDomicilios().add(cliente5domicilio1);
             cliente5.getDomicilios().add(cliente5domicilio2);
             clienteRepository.save(cliente5);
             logger.info("Cliente {}", cliente5);
 
-            UsuarioCliente usuarioCliente6 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
+            UsuarioCliente usuarioCliente6 = UsuarioCliente.builder().username("pepe-honguito75").auth0Id("auth0|iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAABEVBMVEX").build();
 
             ImagenCliente imagenCliente6 = ImagenCliente.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio cliente6domicilio1 = Domicilio.builder().calle("Corrientes").numero(103).cp(5507).localidad(localidad1).build();
             Domicilio cliente6domicilio2 = Domicilio.builder().calle("Colon").numero(612).cp(5501).localidad(localidad2).build();
-            Cliente cliente6 = Cliente.builder().nombre("Morcillito").eliminado(false).email("pepitocomilon@gmail.com").apellido("Comilon").dni("35515444").cuil("20355154449").imagen(imagenCliente6).telefono("2634676323").dni("42219220").cuil("20422192209").rol(Rol.Cliente).usuario(usuarioCliente6).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
+            Cliente cliente6 = Cliente.builder().nombre("Morcillito").eliminado(false).email("morcillitocomilon@elbuensabor.com").apellido("Comilon").dni("35515444").cuil("20355154449").imagen(imagenCliente6).telefono("2634676323").dni("42219220").cuil("20422192209").rol(Rol.Cliente).usuario(usuarioCliente6).fechaNacimiento(LocalDate.of(1990, 12, 15)).build();
             cliente6.getDomicilios().add(cliente6domicilio1);
             cliente6.getDomicilios().add(cliente6domicilio2);
             clienteRepository.save(cliente6);
             logger.info("Cliente {}", cliente6);
 
             //EMPLEADOS
-            UsuarioEmpleado usuarioAdmin = UsuarioEmpleado.builder().username("juancitoAdmin").auth0Id("6658f33db1fb2d3be86e7fee").build();
-            UsuarioEmpleado usuarioCajero = UsuarioEmpleado.builder().username("juancitoCajero").auth0Id("6658f4d3bdc93dff066b0651").build();
-            UsuarioEmpleado usuarioCocinero = UsuarioEmpleado.builder().username("pepitoCocinero").auth0Id("6658f3968b8138d6b49e006c").build();
-            UsuarioEmpleado usuarioDelivery = UsuarioEmpleado.builder().username("elJorgeDeliverys").auth0Id("6658f3c1b8a7a2b0d0f8ddec").build();
+            UsuarioEmpleado usuarioSuperAdmin = UsuarioEmpleado.builder().username("superAdmin").auth0Id("auth0|667b685aaefe511b879e1ae4").build();
+            UsuarioEmpleado usuarioAdmin = UsuarioEmpleado.builder().username("juancitoAdmin").auth0Id("auth0|6658f33db1fb2d3be86e7fee").build();
+            UsuarioEmpleado usuarioCajero = UsuarioEmpleado.builder().username("juancitoCajero").auth0Id("auth0|6658f4d3bdc93dff066b0651").build();
+            UsuarioEmpleado usuarioCocinero = UsuarioEmpleado.builder().username("pepitoCocinero").auth0Id("auth0|6658f3968b8138d6b49e006c").build();
+            UsuarioEmpleado usuarioDelivery = UsuarioEmpleado.builder().username("elJorgeDeliverys").auth0Id("auth0|6658f3c1b8a7a2b0d0f8ddec").build();
 
-            //Agregar Empleados 4
+            //Agregar Empleados 5
+            ImagenEmpleado imagenEmpleadoSuperAdmin = ImagenEmpleado.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
+            Domicilio domicilioEmpleadoSuperAdmin = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
+            Empleado empleadoSuperAdmin = Empleado.builder().nombre("Super").rol(Rol.Superadmin).domicilio(domicilioEmpleadoSuperAdmin).email("superadmin@elbuensabor.com").apellido("Admin").imagen(imagenEmpleadoSuperAdmin).telefono("2634666266").usuario(usuarioSuperAdmin).fechaNacimiento(LocalDate.of(1990, 11, 15)).build();
+            empleadoRepository.save(empleadoSuperAdmin);
+
             ImagenEmpleado imagenEmpleadoAdmin = ImagenEmpleado.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio domicilioEmpleadoAdmin = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
-            Empleado empleadoAdmin = Empleado.builder().nombre("Juancito").sucursal(sucursalChacras).rol(Rol.Administrador).domicilio(domicilioEmpleadoAdmin).email("juancitoadmin@gmail.com").apellido("Admincias").imagen(imagenEmpleadoAdmin).telefono("2634666266").usuario(usuarioAdmin).fechaNacimiento(LocalDate.of(1990, 11, 15)).build();
+            Empleado empleadoAdmin = Empleado.builder().nombre("Juancito").sucursal(sucursalChacras).rol(Rol.Administrador).domicilio(domicilioEmpleadoAdmin).email("juancitoadmin@elbuensabor.com").apellido("Admincias").imagen(imagenEmpleadoAdmin).telefono("2634666266").usuario(usuarioAdmin).fechaNacimiento(LocalDate.of(1990, 11, 15)).build();
             empleadoRepository.save(empleadoAdmin);
 
             ImagenEmpleado imagenEmpleadoCajero = ImagenEmpleado.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio domicilioEmpleadoCajero = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
-            Empleado empleadoCajero = Empleado.builder().nombre("Juancito").sucursal(sucursalChacras).rol(Rol.Cajero).domicilio(domicilioEmpleadoCajero).email("juancitocajeres@gmail.com").apellido("Cajeres").imagen(imagenEmpleadoCajero).telefono("263443626").usuario(usuarioCajero).fechaNacimiento(LocalDate.of(1991, 8, 9)).build();
+            Empleado empleadoCajero = Empleado.builder().nombre("Juancito").sucursal(sucursalChacras).rol(Rol.Cajero).domicilio(domicilioEmpleadoCajero).email("juancitocajeres@elbuensabor.com").apellido("Cajeres").imagen(imagenEmpleadoCajero).telefono("263443626").usuario(usuarioCajero).fechaNacimiento(LocalDate.of(1991, 8, 9)).build();
 
             ImagenEmpleado imagenEmpleadoCocinero = ImagenEmpleado.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio domicilioEmpleadoCocinero = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
-            Empleado empleadoCocinero = Empleado.builder().nombre("Pepito").sucursal(sucursalChacras).rol(Rol.Cocinero).domicilio(domicilioEmpleadoCocinero).email("pepitococinas@gmail.com").apellido("Cocinas").imagen(imagenEmpleadoCocinero).telefono("2634666166").usuario(usuarioCocinero).fechaNacimiento(LocalDate.of(1992, 6, 12)).build();
+            Empleado empleadoCocinero = Empleado.builder().nombre("Pepito").sucursal(sucursalChacras).rol(Rol.Cocinero).domicilio(domicilioEmpleadoCocinero).email("pepitococinas@elbuensabor.com").apellido("Cocinas").imagen(imagenEmpleadoCocinero).telefono("2634666166").usuario(usuarioCocinero).fechaNacimiento(LocalDate.of(1992, 6, 12)).build();
 
             ImagenEmpleado imagenEmpleadoDelivery = ImagenEmpleado.builder().url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s").build();
             Domicilio domicilioEmpleadoDelivery = Domicilio.builder().calle("Sarmiento").numero(123).cp(5507).localidad(localidad1).build();
-            Empleado empleadoDelivery = Empleado.builder().nombre("Jorge").sucursal(sucursalChacras).rol(Rol.Delivery).domicilio(domicilioEmpleadoDelivery).email("jorgedeliveres@gmail.com").apellido("Deliveres").imagen(imagenEmpleadoDelivery).telefono("2634636656").usuario(usuarioDelivery).fechaNacimiento(LocalDate.of(1993, 4, 11)).build();
+            Empleado empleadoDelivery = Empleado.builder().nombre("Jorge").sucursal(sucursalChacras).rol(Rol.Delivery).domicilio(domicilioEmpleadoDelivery).email("jorgedeliveres@elbuensabor.com").apellido("Deliveres").imagen(imagenEmpleadoDelivery).telefono("2634636656").usuario(usuarioDelivery).fechaNacimiento(LocalDate.of(1993, 4, 11)).build();
 
             Set<Empleado> empleados = Set.of(empleadoCajero, empleadoCocinero, empleadoDelivery);
 

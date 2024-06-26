@@ -8,8 +8,8 @@ import java.util.List;
 
 
 public interface EmpleadoRepository extends BaseRepository<Empleado, Long> {
-    @Query(value = "select e from Empleado e where e.sucursal is null and concat(LOWER(e.nombre), ' ', LOWER(e.apellido)) LIKE %:busqueda% order by e.nombre, e.apellido")
-    List<Empleado> buscarXNombre(String busqueda);
+    @Query(value = "select e from Empleado e where e.sucursal is null and e.rol != 0 and concat(LOWER(e.nombre), ' ', LOWER(e.apellido)) LIKE %:busqueda% order by e.nombre, e.apellido")
+    List<Empleado> buscarXNombreEliminados(String busqueda);
 
     @Query(value = "select e from Empleado e where e.sucursal.id = :sucursalId and concat(LOWER(e.nombre), ' ', LOWER(e.apellido)) LIKE %:busqueda% order by e.nombre, e.apellido")
     List<Empleado> buscarXSucursalYNombre(Long sucursalId, String busqueda);

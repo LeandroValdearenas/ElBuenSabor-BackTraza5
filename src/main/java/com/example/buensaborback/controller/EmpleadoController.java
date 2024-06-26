@@ -1,6 +1,7 @@
 package com.example.buensaborback.controller;
 
 import com.example.buensaborback.domain.entities.Empleado;
+import com.example.buensaborback.domain.enums.Rol;
 import com.example.buensaborback.service.Auth0Service;
 import com.example.buensaborback.service.EmpleadoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class EmpleadoController extends BaseControllerImpl<Empleado, EmpleadoSer
         super(service);
     }
 
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("buscar")
     public ResponseEntity<?> buscarXSucursalYNombre(@RequestParam(required = false) Long sucursalId, @RequestParam(required = false) String busqueda) {
         try {
@@ -45,7 +46,7 @@ public class EmpleadoController extends BaseControllerImpl<Empleado, EmpleadoSer
     public ResponseEntity<?> buscarXUsuarioAuth0(@PathVariable String idAuth0) {
         try {
             Empleado empleado = service.buscarXUsuarioAuth0(idAuth0);
-            if (empleado.getSucursal() == null) {
+            if (empleado.getSucursal() == null && empleado.getRol() != Rol.Superadmin) {
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN);
             }
             return ResponseEntity.status(HttpStatus.OK).body(empleado);
@@ -63,7 +64,7 @@ public class EmpleadoController extends BaseControllerImpl<Empleado, EmpleadoSer
 
             // Se crea el usuario en Auth0
             String idAuth0 = (String) auth0Service.createAuth0User(empleado.getEmail(), empleado.getNombre() + " " + empleado.getApellido(), password, empleado.getRol()).get("user_id");
-            empleado.getUsuario().setAuth0Id(idAuth0.replace("auth0|", ""));
+            empleado.getUsuario().setAuth0Id(idAuth0);
 
             // Se guardan los horarios
             empleado.getHorarios().forEach(horario -> horario.setEmpleado(empleado));
@@ -84,7 +85,9 @@ public class EmpleadoController extends BaseControllerImpl<Empleado, EmpleadoSer
             // Actualizar id de auth0 de empleado con el de la base
             empleado.getUsuario().setAuth0Id(searchedEntity.getUsuario().getAuth0Id());
 
-            auth0Service.assignRoles("auth0|" + empleado.getUsuario().getAuth0Id(), empleado.getRol());
+            if (empleado.getRol() != searchedEntity.getRol())
+                auth0Service.assignRoles(empleado.getUsuario().getAuth0Id(), empleado.getRol());
+
             empleado.getHorarios().forEach(horario -> horario.setEmpleado(empleado));
             return ResponseEntity.status(HttpStatus.OK).body(service.update(empleado));
         } catch (Exception e) {

@@ -37,10 +37,10 @@ public class GestorPdf {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setSubject("Factura de Pedido N°" + (("0000") + pedido.getId().toString()).substring((("0000") + pedido.getId()).length() - 5));
-            helper.setTo("elbuensabor.facturacion@gmail.com"); //pedido.getCliente().getEmail()
+            helper.setTo(pedido.getCliente().getEmail());
             helper.setText("Adjunto encontrarás la factura de tu pedido. Saludos.");
 
-            // Adjuntar el PDF generado00
+            // Adjuntar el PDF generado
             helper.addAttachment("factura.pdf", new ByteArrayResource(outputStream.toByteArray()));
             javaMailSender.send(message);
         } catch (MessagingException e) {

@@ -49,7 +49,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         super(service);
     }
 
-    @PreAuthorize("hasAnyAuthority('administrador', 'cajero', 'cocinero', 'delivery')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin', 'cajero', 'cocinero', 'delivery')")
     @MessageMapping("/pedidos")
     @SendTo("/topic/pedidos")
     @GetMapping("buscar/{idSucursal}")
@@ -76,7 +76,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
 
     // ~ ESTADÍSTICAS ~
     // RANKING DE PRODUCTOS
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("rankingproductos")
     public ResponseEntity<?> rankingProductos(@RequestParam(required = false) Long idCategoria, @RequestParam(required = false) Long idSucursal, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta) {
         try {
@@ -95,7 +95,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     // EXCEL
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("descargarexcelrankingproductos")
     public ResponseEntity<?> descargarExcelRankingProductos(@RequestParam(required = false) Long idCategoria, @RequestParam(required = false) Long idSucursal, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta) {
         GestorExcel gestorExcel = new GestorExcel(service);
@@ -119,7 +119,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     // RANKING DE CLIENTES
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("rankingclientes")
     public ResponseEntity<?> rankingClientes(@RequestParam(required = false) Long limite, @RequestParam(required = false) Long idSucursal, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta, @RequestParam(required = false) boolean ordenarPorPedidos) {
         try {
@@ -138,7 +138,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     // EXCEL
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("descargarexcelrankingclientes")
     public ResponseEntity<?> descargarExcelRankingClientes(@RequestParam(required = false) Long limite, @RequestParam(required = false) Long idSucursal, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta, @RequestParam(required = false) boolean ordenarPorPedidos) {
         GestorExcel gestorExcel = new GestorExcel(service);
@@ -162,7 +162,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     // MOVIMIENTOS MONETARIOS
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("movimientosmonetarios")
     public ResponseEntity<?> movimientosMonetarios(@RequestParam(required = false) Long idSucursal, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta, @RequestParam(required = false) boolean esDiario) {
         try {
@@ -181,7 +181,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     // EXCEL
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin')")
     @GetMapping("descargarexcelmovimientosmonetarios")
     public ResponseEntity<?> descargarExcelMovimientosMonetarios(@RequestParam(required = false) Long idSucursal, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta, @RequestParam(required = false) boolean esDiario) {
         GestorExcel gestorExcel = new GestorExcel(service);
@@ -229,7 +229,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     // EXCEL PEDIDOS FACTURACIÓN
-    @PreAuthorize("hasAnyAuthority('administrador', 'cajero')")
+    @PreAuthorize("hasAnyAuthority('administrador', 'superadmin', 'cajero')")
     @GetMapping("descargarexcelpedidos/{idSucursal}")
     public ResponseEntity<?> descargarExcelPedidos(@PathVariable Long idSucursal, @RequestParam(required = false) String estado, @RequestParam(required = false) String busqueda, @RequestParam(required = false) String desde, @RequestParam(required = false) String hasta) {
         GestorExcel gestorExcel = new GestorExcel(service);
