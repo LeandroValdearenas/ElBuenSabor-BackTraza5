@@ -901,8 +901,8 @@ public class BuenSaborBackApplication {
             // Crear promoción para sucursal - Día del Amigo
             Promocion promocionDiaAmigo = Promocion.builder()
                     .denominacion("Día del Amigo")
-                    .fechaDesde(LocalDate.of(2024, 7, 19))
-                    .fechaHasta(LocalDate.of(2024, 7, 21))
+                    .fechaDesde(LocalDate.of(2024, 1, 1))
+                    .fechaHasta(LocalDate.of(2024, 12, 31))
                     .horaDesde(LocalTime.of(0, 0))
                     .horaHasta(LocalTime.of(23, 59))
                     .descripcionDescuento("Celebra el Día del Amigo con nosotros con estas ofertas especiales")
@@ -938,8 +938,8 @@ public class BuenSaborBackApplication {
             // Crear promoción para sucursal - Fin de Semana de Pizza
             Promocion promocionFinSemanaPizza = Promocion.builder()
                     .denominacion("Fin de Semana de Pizza")
-                    .fechaDesde(LocalDate.of(2024, 6, 28))
-                    .fechaHasta(LocalDate.of(2024, 6, 30))
+                    .fechaDesde(LocalDate.of(2024, 1, 1))
+                    .fechaHasta(LocalDate.of(2024, 12, 31))
                     .horaDesde(LocalTime.of(0, 0))
                     .horaHasta(LocalTime.of(23, 59))
                     .descripcionDescuento("Disfruta de un fin de semana con las mejores pizzas a precios especiales")
