@@ -47,7 +47,7 @@ public class SecurityConfiguration {
                                 .requestMatchers("/swagger-ui/**").permitAll()
                                 .requestMatchers("/api-docs/**").permitAll()
                                 .requestMatchers("/h2-console/**").permitAll()
-                                .requestMatchers("/ws/**").permitAll()
+                                .requestMatchers("/wss/**").permitAll()
                                 // INSUMOS
                                 .requestMatchers(HttpMethod.GET, "/api/insumos/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/insumos/**").hasAnyAuthority("administrador", "cocinero")
